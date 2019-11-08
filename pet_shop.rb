@@ -10,13 +10,26 @@ def add_or_remove_cash(name, amount)
   name[:admin][:total_cash] += amount
 end
 
-def pets_sold(name)
-  name[:pets].pop()
+def pets_sold(pet_shop)
+  pet_shop[:sold]
 end
 
-def increase_pets_sold(name, amount)
-  name[:pets].size()
-end
+
+# def pets_sold(name)
+#   name[:pets].pop()
+# end
+
+#  increase_pets_sold
+
+# def increase_pets_sold(name, amount)
+#   name[:pets].size()
+# end
+#
+# def increase_pets_sold(name, pet)
+#   name[:pets].delete_at(pet)
+# end
+
+
 
 def stock_count(name)
   name[:pets].size
