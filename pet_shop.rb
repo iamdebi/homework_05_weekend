@@ -3,7 +3,7 @@ def pet_shop_name(name)
 end
 
 def total_cash(name)
-return name[:admin][:total_cash]
+  return name[:admin][:total_cash]
 end
 
 def add_or_remove_cash(name, amount)
@@ -14,21 +14,30 @@ def pets_sold(name)
   name[:pets].pop()
 end
 
-
-# def increase_pets_sold(name, amount)
-#
-# end
+def increase_pets_sold(name, amount)
+  name[:pets].size()
+end
 
 def stock_count(name)
   name[:pets].size
 end
 
-def pets_by_breed (name, breed)
-  breed_found = []
-  for dog in pets
-    if breed == dog
-      breed_found.push(breed)
+def pets_by_breed(pet_shop, pet_type)
+  found_breeds = []
+  for pet in pet_shop[:pets]
+    if pet[:breed] == pet_type
+      found_breeds.push(pet_type)
     end
-  return breed_found.size()
+  end
+  return found_breeds
+end
+
+
+def find_pet_by_name(pet_shop, pet_name)
+  if (pet_name == pet_shop[:pets][0][:name])
+    return pet_name
+  else
+    return
+    nil
   end
 end
