@@ -14,17 +14,9 @@ def pets_sold(pet_shop)
   pet_shop[:admin][:pets_sold]
 end
 
-#  increase_pets_sold
-
-# def increase_pets_sold(name, amount)
-#   name[:pets].size()
-# end
-#
-# def increase_pets_sold(name, pet)
-#   name[:pets].delete_at(pet)
-# end
-
-
+def increase_pets_sold(pet_shop, amount)
+  pet_shop[:admin][:pets_sold] += amount
+end 
 
 def stock_count(name)
   name[:pets].size
