@@ -56,13 +56,12 @@ def customer_cash(customer)
 end
 
 def remove_customer_cash(customer, amount)
-  customer_cash = customer[:cash]
-  customer_cash -= amount
+  customer[:cash] -= amount
 end
 
 def customer_pet_count(customer)
   customer[:pets].size()
-end 
+end
 
 def add_pet_to_customer(customer, pet_name)
   customer[:pets].push(pet_name)
@@ -71,7 +70,7 @@ end
 
 def customer_can_afford_pet(customer, pet_name)
   customer_funds = customer[:cash]
-  for pet in pet_shop[:pets]
+  for pet in @pet_shop[:pets]
     if (pet[:name] == pet_name)
       cost_pet = pet[:name]
     end
