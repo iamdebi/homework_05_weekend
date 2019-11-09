@@ -33,34 +33,19 @@ def pets_by_breed(pet_shop, pet_type)
 end
 
 def find_pet_by_name(pet_shop, pet_name)
-  pet_found = []
   for pet in pet_shop[:pets]
     if (pet[:name] == pet_name)
-      pet_found.push(pet)
-    else
-      return nil
+      return pet
     end
   end
-  return pet_found
+  return
+    nil
 end
-
-
-# def find_pet_by_name(pet_shop, pet_name)
-#   for pet in pet_shop[:pets]
-#     if (pet[:name] == pet_name)
-#       retrun pet[:name]
-#     else
-#       return
-#         nil
-#     end
-#   end
-# end
-
 
 def remove_pet_by_name(pet_shop, pet_name)
   for pet in pet_shop[:pets]
-    if pet[:name] == pet_name
-      pet[:name].delete(pet_name)
+    if (pet[:name] == pet_name)
+      pet.delete(pet_name)
     end
   end
 end
@@ -93,4 +78,9 @@ def customer_can_afford_pet(customer, pet_name)
     else
       return false
     end
+end
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+  # sold_pet = remove_pet_by_name(pet_shop, pet)
+  # customer.(sold_pet)
 end
