@@ -80,20 +80,42 @@ def customer_can_afford_pet(customer, pet_name)
     end
 end
 
-def sell_pet_to_customer(pet_shop, pet, customer)
-   find_pet_by_name(pet_shop, pet)
-    if customer_can_afford_pet(customer, pet)
-       remove_pet_by_name(pet_shop, pet)
-       sold_pet = remove_pet_by_name(pet_shop, pet)
-       add_pet_to_customer(customer, sold_pet)
-       increase_pets_sold(pet_shop, customer_pet_count(customer))
-       pet_cost = pet[:price]
-       remove_customer_cash(customer, pet_cost)
-       add_or_remove_cash(pet_shop, pet_cost)
-    end
-  return
-  increase_pets_sold(pet_shop, customer_pet_count(customer))
-  pet_cost = pet[:price]
-  remove_customer_cash(customer, pet_cost)
-  add_or_remove_cash(pet_shop, pet_cost)
+# def sell_pet_to_customer(pet_shop, pet_name, customer)
+#   find_pet_by_name(pet_shop, pet_name)
+#     if pet = pet_name
+#   customer_can_afford_pet(customer, pet_name)
+#        remove_pet_by_name(pet_shop, pet_name)
+#        sold_pet = remove_pet_by_name(pet_shop, pet_name)
+#        add_pet_to_customer(customer, sold_pet)
+#        increase_pets_sold(pet_shop, 1)
+#        pet_cost = pet_name[:price]
+#        remove_customer_cash(customer, pet_cost)
+#        add_or_remove_cash(pet_shop, pet_cost)
+#      else
+#        customer_cash(customer)
+#        customer_pet_count(customer)
+#        total_cash(pet_shop)
+#        pets_sold(pet_shop)
+#     end
+# end
+#
+def sell_pet_to_customer(pet_shop, pet_name, customer)
+  find_pet_by_name(pet_shop, pet_name)
+    if pet = pet_name
+       if (customer_can_afford_pet(customer, pet_name) == true)
+        remove_pet_by_name(pet_shop, pet_name)
+        sold_pet = remove_pet_by_name(pet_shop, pet_name)
+        add_pet_to_customer(customer, sold_pet)
+        amount = customer_pet_count(customer)
+        increase_pets_sold(pet_shop, amount)
+        pet_cost = pet_name[:price]
+        remove_customer_cash(customer, pet_cost)
+        add_or_remove_cash(pet_shop, pet_cost)
+    else
+       customer_cash(customer)
+       customer_pet_count(customer)
+       total_cash(pet_shop)
+       pets_sold(pet_shop)
+     end
+  end
 end
