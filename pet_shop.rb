@@ -16,7 +16,7 @@ end
 
 def increase_pets_sold(pet_shop, amount)
   pet_shop[:admin][:pets_sold] += amount
-end 
+end
 
 def stock_count(name)
   name[:pets].size
@@ -32,16 +32,20 @@ def pets_by_breed(pet_shop, pet_type)
   return found_breeds
 end
 
-
 def find_pet_by_name(pet_shop, pet_name)
-  if pet_name == pet_shop[:pets][0][:name]
-    return pet_name
+  for pet in pet_shop[:pets]
+    if pet[:name] == pet_name
+      return pet_shop[:name]
+    else
+      return nil
+    end
   end
 end
 
+
 def remove_pet_by_name(pet_shop, pet_name)
   for pet in pet_shop[:pets]
-    if (pet[:name] == pet_name)
+    if pet[:name] == pet_name
       pet[:name].delete(pet_name)
     end
   end
